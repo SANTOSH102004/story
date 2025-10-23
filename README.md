@@ -5,8 +5,8 @@ A minimal standalone Python project that generates short stories using the pretr
 Features:
 - Loads the GPT-2 small model and tokenizer
 - Sampling with temperature, top-k, and top-p (nucleus) sampling
-- Command-line interface (prompt via --prompt or interactive input)
-- Single-file runnable script: `generate_story.py`
+- GUI entry point via `generate_story_gui.py` (primary)
+- Archived CLI available at `archive/generate_story_cli.py`
 
 Requirements
 ------------
@@ -31,28 +31,29 @@ If you have a CUDA-capable GPU and want to use it, install a suitable torch buil
 
 Usage
 -----
-Examples (PowerShell):
-
-```powershell
-# interactive prompt
-python .\generate_story.py
-
-# pass prompt and generation settings
-python .\generate_story.py --prompt "A mysterious door appeared in the forest" --max_length 250 --top_k 40 --top_p 0.9 --temperature 1.0
-
-# generate multiple different stories
-python .\generate_story.py --prompt "On a rainy evening" -n 3 --max_length 180
-
-GUI
----
-A simple Tkinter GUI is provided in `generate_story_gui.py`. Run it with:
+Primary (GUI)
+-------------
+Run the Tkinter GUI (recommended):
 
 ```powershell
 python .\generate_story_gui.py
 ```
 
 The GUI loads the GPT-2 model the first time you click Generate (this may take a
-minute the first run). Use the sliders and inputs to adjust sampling parameters.
+minute on the first run). Use the sliders and inputs to adjust sampling parameters.
+
+Archived CLI
+------------
+If you prefer the original command-line interface, it has been archived at:
+
+```
+archive/generate_story_cli.py
+```
+Run it the same as before (requires Python and dependencies):
+
+```powershell
+python .\archive\generate_story_cli.py --prompt "A mysterious door appeared in the forest"
+```
 ```
 
 Notes
